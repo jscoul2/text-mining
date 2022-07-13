@@ -515,6 +515,7 @@ tweet_tokens <-
   unnest_tokens(output = word, 
                 input = text, 
                 token = "tweets")
+# write_csv(test."data/.....")
 ```
 
 Notice that we've included an additional argument in the call to `unnest_tokens()`. Specifically, we used the specialized `“tweets”` tokenizer in the `tokens =` argument that is very useful for dealing with Twitter text or other text from online forums in that it retains hashtags and mentions of usernames with the \@ symbol.
