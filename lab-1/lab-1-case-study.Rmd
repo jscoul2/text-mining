@@ -474,7 +474,7 @@ Note that we could have reused `opd_teacher` and simply overwritten it
 each time to prevent creating new objects:
 
 ```{r,eval=F}
-opd_teacher <- select(opd_survey, Role, Resource, Q21)
+opd_teacher <- select(opd_survey, Role, Resource...6, Q21)
 opd_teacher <- rename(opd_teacher, text = Q21)
 opd_teacher <- slice(opd_teacher, -1, -2)
 opd_teacher <- na.omit(opd_teacher)
