@@ -26,25 +26,25 @@ Use the institutional library (e.g. [NCSU Library](https://www.lib.ncsu.edu/#art
 
 1.  Provide an APA citation for your selected study.
 
-    -Mohammadi, E., & Karami, A. (2022). Exploring research trends in big data across disciplines: A text mining analysis. Journal of Information Science, 48(1), 44--56. <https://doi.org/10.1177/0165551520932855>
+    -   
 
 2.  How does the visualization address research questions?
 
-    -   Data Visualisation entails methods to visually depict relationships within large volumes ofdata. While this topic is one ofthe most frequently applied in our document corpus, its popularity was mostly in 2012 and it has experienced diminishing
+    -   
 
 Draft a research question for a population you may be interested in studying, or that would be of interest to educational researchers, and that would require the collection of text data and answer the following questions:
 
 1.  What text data would need to be collected?
 
-    -   The data were limited to papers published between 2012 and 2017. Due to the low number of publications before 2012 (86 papers), we chose 2012 as the starting point.
+    -   
 
 2.  For what reason would text data need to be collected in order to address this question?
 
-    -   The purpose of this research project is to explore the scope and structure of big data across disciplines.
+    -   
 
 3.  Explain the analytical level at which these text data would need to be collected and analyzed.
 
-    -   The authors applied topic modeling and word co-occurrence analysis methods to identify key topics from more than 36,000 big data publications across all academic disciplines between 2012 and 2017.
+    -   
 
 ### Part II: Data Product
 
@@ -54,61 +54,7 @@ I highly recommend creating a new R script in your lab-1 folder to complete this
 
 ```{r, my-data-product}
 # YOUR FINAL CODE HERE
-library(tidyverse)
-library(tidytext)
 
-opd_survey <- read_csv ("data/opd_survey.csv")
-opd_teacher <- opd_survey %>%
-  select(Role, Resource...6, Q21) %>%
-  rename(text = Q21) %>%
-  slice(-1, -2) %>%
-  na.omit() %>%
-  filter(Role == "Teacher")
-
-opd_tidy <- unnest_tokens(opd_teacher, word, text)
-
-head(opd_tidy)
-
-head(opd_teacher)
-```
-
-```{r, my-data-product-2}
-head (stop_words)
-
-view (stop_words)
-```
-
-```{r, my-data-product-3}
-opd_clean <- anti_join(opd_tidy, stop_words)
-head(opd_clean)
-```
-
-```{r, my-data-product-4}
-opd_counts <- count(opd_clean, word, sort = TRUE)
-opd_counts <- opd_clean %>% 
-  count(word, sort = TRUE)
-
-opd_counts
-
-exludewords <- data.frame("word"= c("teachers", "children"))
-opd_clean.2 <- anti_join(opd_clean,exludewords) #remove new words
-```
-
-```{r, my-data-product-5}
-opd_counts.2 <-opd_clean.2 %>%
-    count(word,sort=TRUE)
-head(opd_counts.2)
-```
-
-```{r, my-data-product-6}
-library(wordcloud2)
-
-```
-
-```{r, my-data-product-7}
-wordcloud2(opd_counts.2)
-
-    
 
 ```
 
