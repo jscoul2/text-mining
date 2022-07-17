@@ -80,6 +80,12 @@ of data and only use the training set for model development.
 First, let's load the following packages that we'll be needing for this
 walkthrough:
 
+```{r install package}
+
+install.packages(tidymodels)
+
+```
+
 ```{r load-packages, message=FALSE}
 library(tidyverse)
 library(tidymodels)
@@ -197,11 +203,21 @@ comments_folds
 Now let's set up a naive bayes model.
 
 ```{r}
-nb_spec <- naive_Bayes() %>%
+nb_spec <- svm_poly(degree = 1) %>%
+
   set_mode("classification") %>%
-  set_engine("naivebayes")
+
+  set_engine("kernlab", scaled = FALSE)
 
 nb_spec
+```
+
+```{#{r} naive bayes model}
+##nb_spec <- naive_Bayes() %>%
+###  set_mode("classification") %>%
+###  set_engine("naivebayes")
+ 
+###nb_spec
 ```
 
 Now that we have a full specification of the preprocessing recipe and

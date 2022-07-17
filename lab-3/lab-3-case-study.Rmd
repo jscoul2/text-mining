@@ -391,9 +391,9 @@ Your output should look something like this:
 ```{r find-quotes, echo=FALSE}
 forum_quotes <- ts_forum_data %>%
   select(post_content) %>% 
-  filter(grepl('time', post_content))
+  filter(grepl(' time ', post_content))
 
-sample_n(forum_quotes,10)
+sample <- sample_n(forum_quotes,10)
 ```
 
 #### Creating a Document Term Matrix
